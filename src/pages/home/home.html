@@ -1,14 +1,55 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Ionic Blank
+      PassGen
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+  <h1 id="generated"></h1>
+  <meter max="4" id="password-strength-meter"></meter>
+  <p id="password-strength-text"></p>
+  <ion-list>
+    <ion-list-header>
+      Options
+    </ion-list-header>
+
+    <ion-item>
+      <ion-label>Uppercase Characters</ion-label>
+      <ion-toggle value="alpha" checked="true" [(ngModel)]="upper" (ionChange)="onChange()"></ion-toggle>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Lowercase Characters</ion-label>
+      <ion-toggle value="alpha" checked="true" [(ngModel)]="lower" (ionChange)="onChange()"></ion-toggle>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Numbers</ion-label>
+      <ion-toggle value="numeric" [checked]="true" [(ngModel)]="numeric" (ionChange)="onChange()"></ion-toggle>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Symbols</ion-label>
+      <ion-toggle value="symbol" [checked]="true" [(ngModel)]="sym" (ionChange)="onChange()"></ion-toggle>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>latin1</ion-label>
+      <ion-toggle value="symbol" [checked]="true" [(ngModel)]="latin1" (ionChange)="onChange()"></ion-toggle>
+    </ion-item>
+  </ion-list>
+
+  <ion-list>
+    <ion-list-header>
+      Password Length
+      <ion-badge item-end color="secondary">{{length}}</ion-badge>
+    </ion-list-header>
+    <ion-item>
+      <ion-range min="1" max="64" pin="true" [(ngModel)]="length" color="secondary"  (ionChange)="onChange()">
+      </ion-range>
+    </ion-item>
+  </ion-list>
+
 </ion-content>
